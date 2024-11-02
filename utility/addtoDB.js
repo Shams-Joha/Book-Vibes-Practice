@@ -26,7 +26,7 @@ const addToStoredReadList = (id) => {
     }
 }
 
-export { addToStoredReadList };
+export { addToStoredReadList, getStoredReadList };
 
 
 // Homework Wish List. Same Process.
