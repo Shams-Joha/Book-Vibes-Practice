@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   createBrowserRouter,
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/books/:bookId',
-        loader: () => fetch('./booksData.json'), // not recommended, Do not load all the books for one book.
+        loader: () => fetch('/booksData.json'), // not recommended, Do not load all the books for one book.
         element: <BookDetails></BookDetails>
       },
       {
@@ -34,9 +36,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'listedbooks',
-        loader: () => fetch('./booksData.json'), // not recommended
+        loader: () => fetch('/booksData.json'), // not recommended
         element: <ListedBooks></ListedBooks>
-        
+
       }
 
 
@@ -47,5 +49,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </StrictMode>,
 )
